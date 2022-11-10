@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Session 3 | M3 - Introduction to Vue.js</title>
+
+		<meta name="description" content="M3 - Introduction to Vue.js | Session 3">
+		<meta name="author" content="Dani Nebot">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/harbour.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+		<div class="header">
+			<a href="#">
+				<svg class="harbour-logo" height="26" viewBox="0 0 270 26" width="270"><path d="m269.359 21.241v3.536h-15.158v-23.573h15.125v3.538h-11.084v6.533h9.5v3.366h-9.5v6.602zm-28.902 4.04c-5.83 0-9.164-3.098-9.164-8.484v-7.609c0-5.387 3.334-8.487 9.164-8.487 2.492 0 4.547.674 6.197 2.056 1.65 1.378 2.492 3.4 2.492 6.094v.337h-4.041v-.337c0-1.449-.474-2.559-1.449-3.3-.977-.776-2.055-1.146-3.234-1.146-3.402 0-5.086 1.651-5.086 4.514v8.147c0 2.86 1.684 4.514 5.086 4.514 1.18 0 2.258-.371 3.234-1.112.977-.774 1.449-1.887 1.449-3.336v-.335h4.041v.335c0 2.696-.842 4.718-2.492 6.097-1.65 1.38-3.705 2.052-6.197 2.052zm-18.26-6.329h-8.893l-2.121 5.825h-3.74v-1.347l8.422-22.227h3.975l8.422 22.227v1.348h-3.975zm-4.412-12.357-3.268 8.991h6.469zm-17.484 9.093h-6.164v9.09h-4.043v-23.574h10.207c4.143 0 6.635 2.799 6.635 7.242 0 4.446-2.493 7.242-6.635 7.242zm-.707-10.946h-5.457v7.409h5.457c1.854 0 3.234-1.314 3.234-3.705 0-2.389-1.381-3.704-3.234-3.704zm-22.84 6.297.471.168c1.281.438 2.293.843 3.033 1.18.773.335 1.549.775 2.393 1.345 1.648 1.11 2.39 2.593 2.39 4.58 0 4.142-3.164 6.97-8.924 6.97-2.63 0-4.818-.706-6.57-2.087-1.717-1.413-2.594-3.436-2.594-6.062h4.043c0 1.112.303 1.989.875 2.696 1.213 1.381 2.729 1.752 4.479 1.752 2.83 0 4.414-1.28 4.414-3.065 0-.842-.371-1.48-1.111-1.92-.741-.471-2.09-1.078-4.043-1.816l-.305-.102-.539-.203c-2.559-.977-4.41-1.919-5.522-2.829-1.113-.943-1.649-2.29-1.649-4.073 0-2.055.741-3.738 2.258-4.985 1.514-1.246 3.604-1.886 6.229-1.886 5.287 0 8.758 2.526 8.758 7.948h-4.041c0-2.964-2.021-4.244-4.75-4.244-2.661 0-4.379 1.212-4.379 2.862 0 .91.336 1.617 1.043 2.054.705.44 2.053 1.009 4.041 1.717zm-30.959 4.68h-4.648v9.059h-4.043v-23.574h10.14c4.582 0 7.108 2.663 7.108 7.242 0 3.132-1.416 5.623-4.145 6.803l4.412 8.183v1.346h-3.973zm4.445-7.205c0-2.527-1.246-3.772-3.738-3.772h-5.355v7.544h5.355c2.492 0 3.738-1.248 3.738-3.772zm-27.791 16.767c-2.729 0-4.916-.706-6.535-2.154-1.582-1.445-2.393-3.466-2.393-6.025v-15.896h4.044v16.096c0 2.458 1.751 4.278 4.884 4.278s4.885-1.82 4.885-4.278v-16.096h4.041v15.896c0 2.561-.808 4.58-2.424 6.025-1.584 1.448-3.773 2.154-6.502 2.154zm-23.242.001c-5.693 0-9.266-3.198-9.266-8.485v-7.61c0-5.287 3.572-8.486 9.266-8.486s9.262 3.199 9.262 8.486v7.61c0 5.287-3.569 8.485-9.262 8.485zm5.221-16.297c0-2.661-1.854-4.581-5.221-4.581-3.37 0-5.223 1.919-5.223 4.581v8.015c0 2.661 1.853 4.58 5.223 4.58 3.367 0 5.221-1.919 5.221-4.58zm-25.266 15.792h-10.847v-23.573h9.939c4.209 0 6.736 2.157 6.736 6.333 0 2.391-.943 4.042-2.828 5.017 2.491.91 3.737 2.795 3.737 5.692 0 4.274-2.459 6.531-6.737 6.531zm-1.582-20.035h-5.222v6.566h5.222c2.222 0 3.334-1.11 3.334-3.3s-1.112-3.266-3.334-3.266zm.908 9.935h-6.13v6.564h6.13c2.258 0 3.369-1.078 3.369-3.232 0-2.222-1.111-3.332-3.369-3.332zm-23.715 1.042h-4.648v9.059h-4.043v-23.574h10.139c4.582 0 7.108 2.663 7.108 7.242 0 3.132-1.415 5.623-4.144 6.803l4.414 8.183v1.346h-3.976zm4.447-7.205c0-2.527-1.247-3.772-3.738-3.772h-5.356v7.544h5.356c2.491 0 3.738-1.248 3.738-3.772zm-22.907 10.438h-8.893l-2.122 5.825h-3.74v-1.347l8.422-22.226h3.975l8.421 22.228v1.346h-3.975zm-4.413-12.357-3.267 8.991h6.467zm-18.09 8.148h-9.77v10.034h-4.04v-23.573h4.041v10.002h9.77v-10.002h4.041v23.573h-4.042z"></path><circle cx="161.555" cy="24.745" r="1.256"></circle></svg>
+			</a>
+		</div>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h3>Introduction to Vue.js | Session 3</h3>
+					<p>
+						<small><a href="https://twitter.com/daniinebot">Dani Nebot</a></a></small>
+					</p>
+				</section>
+
+				<section>
+					<section data-markdown>
+						### Functional Programming (FP)
+
+						**Pure functions** must:
+						- Always return the same return value for the same arguments
+						- Be Side-effect-free
+
+						```
+							function multiply(a, b) {
+								return a * b;
+							}
+						```
+					</section>
+					<section data-markdown>
+						#### Why is FP important?
+
+						- Easier to follow, debug and test
+						- Performance boost!
+					</section>
+					<section data-markdown>
+						#### What is not FP?
+						```
+						// Loops:
+						for, while, for...in, ...
+
+						// Variable declarations with
+						var or let
+
+						// Object mutation:
+						cat.color = 'orange';
+
+						// Array mutation:
+						.push(), .pop(), .sort(), .splice()...
+
+						// Void functions (that don't return a value)
+						```
+					</section>
+
+					<section data-markdown>
+						#### FP in JavaScript: Array Iterators
+						- Accept another function as a parameter (Higher order functions)
+						- Iterate on the array elements, invoking the function
+
+						```
+						// This is a very common pattern in modern JS:
+
+						return listOfElements
+								.filter(item => ...) // to filter out unwanted elements
+								.map(item => ...) // to change the structure of the data
+								.reduce((acc, item) => ...); // does literally anything
+
+						// the best part is, after all the data manipulation,
+						// the array listOfElements is completely unchanged!
+						```
+					</section>
+					<section data-markdown>
+						![](./assets/mapfilterreduce.png)
+					</section>
+					<section data-background-iframe="https://sfc.vuejs.org/#eNqFUttq3DAQ/ZXBL3nRWmnSq7u7JVAoBNpCt6EPdSmyPZto0cVo5G2Txf/ekeylaUOIH4TmdjTn+ByKi74v9wMWVbGkNug+AmEc+nXtagcgJVwRwuUGLkJQtxCwG1qE6KFVph2MihzcINBgQbkOrPoNfstXULmf726wDQaa0T6+/8QgWwzoWqym5E2MPVVSdrhH43sMpfV32hhV+nAt0S2uNrLzLclv2MhLtVebvKj8csSRH4xvlPn5udlhG0nmXeW0a3qi9Y4iGM3HCr6fCngm4EzAuYDnAl4IeCnglYDXAt5w6fTH35FEawUn706SGnWckonjnFzKSbOs1jKi7ZMiHAEsO72H1iiiVV3wYFTaYaiLqUi9cuuvs3BJMGMADVp0kUC7rOmkoKYKDgduG0d+LY1lgCbIdT7+hTvq/wQct40jzHjAX0aRvPLERN6jwiHFWzOxSqQOuRtgy6QWpO+wgrOA9u2UtSpca1fB+TE1ZpkyQiEKbXsf4sKqvtyRd2y7Q2qq5wLVBe83IdUF+zLFdXF0CG3bZNYdZWfwrQyDi9piiWQXTfC/iN2zYxRxD0Nyco9hwV7p2DD8Ex7H/K/1Ae7MaCzGP/Z5Fm0=">
+						<aside class="notes">
+							const sum = list.reduce(
+								(acc, i) => {
+									return acc + i;
+								},
+								0)
+
+	const max = list.reduce(
+		(acc, i) => {
+			return i > acc ? i : acc;
+		},
+		0)
+						</aside>
+
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						### FP in Vue: Computed properties
+
+						Avoid clutter in the template
+
+						Avoid code repetition
+
+						Can be cached for performance gains
+						</section>
+						<section data-markdown>
+							#### computed()
+
+							Change this:
+
+							```
+								&lt;p>Has published books:&lt;/p>
+								&lt;span>{{ author.books.length > 0 ? 'Yes' : 'No' }}&lt;/span>
+							```
+
+							Into this:
+							```
+								// a computed ref
+								const publishedBooksMessage = computed(() => {
+									return author.books.length > 0 ? 'Yes' : 'No'
+								})
+								&lt;/script>
+
+								&lt;template>
+									&lt;p>Has published books:&lt;/p>
+									&lt;span>{{ publishedBooksMessage }}&lt;/span>
+								&lt;/template>
+							```
+
+						</section>
+
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp9U0tu20AMvQo7i8YGbGnTleK48UJAizYxkBYFik5hyBIVy/F8MBy5cAXt2yN01Sv2CKU+sZ3YyG7IeXwkH8lKzKwNtiWKSEwodYX1QOhLO5W6UNY4DxU4zEeQGmVLjxnUkDuj4IKDLqSWOjWaPHyK48XtfBF/ef9xcTO//RB/hSu4+Pf3zy8GdZB38ezuPOb3HqOMfsAduzntKqF4hzS3qCPIkw0h1IeEHZIYyuUNvkkNvWsk9fdhg8tLnfrCaEiy7Kb9GgyhOgAp2CabEgNb0mowX64x9UFCVNzrQVWPetCQqTgrwBGfQ2W2+CKlsYM+UOpJ2AnLkrLhUdlN4pEtgAnZRMN2nBt3JUXffKEf2aSAa2VKQk53AARHwnD7r069UrTsLGLVUz2JgbdnZxGdG2LdNs8tcKFdyUsX9o/Se1bjOt0U6QNXt5eZ08+yDJI+9yTskNPXekn28mzssaQcfteapwxPC7DTzyt0CAWB0bjHNrv7+AsqWRtXeFaVokaOsy32Mc2ojsbDJvndBqftkCrIjfZjKn5iBG+43kvguA4gRqI7lrFKbLAmo/mc2rWQ/QePktN3Q5GCT6expVh5bykKQ8rT5gjXFBh3H/IrcKX2hcIASY2XzvwgdEwsBW/3niNkJy/G2KHOWAf3Eucz6AlvQ8ujrkX9H8mja0Y=">
+
+							<div style="position: absolute; right: -10rem; bottom: -30rem;">
+								<img src="https://i.giphy.com/media/26DN5pBQzhqgAufPq/200w.gif" />
+							</div>
+							<aside class="notes">
+								import { ref, computed } from 'vue'
+								const monkeysNumberMessage = computed(() => {
+									console.log('counting monkeys...')
+									if (monkeys.value.length === 0) return 'there are no monkeys'
+									else if (monkeys.value.length === 1) return 'there is one monkey'
+									else return `there are ${monkeys.value.length} monkeys`
+								})
+								const majority = computed(() => {
+									const eyesOpen = monkeys.value.filter(monkey => monkey.hasEyesOpen)
+									return (eyesOpen.length >= (monkeys.value.length / 2)) ? HEAR_NO_EVIL_MONKEY : SEE_NO_EVIL_MONKEY
+								})
+							</aside>
+						</section>
+					</section>
+
+					<section>
+						<section data-markdown>
+							### Watchers
+
+							FP is cool
+
+							But sometimes we NEED side effects...
+
+							We can use the [watch()](https://vuejs.org/guide/essentials/watchers.html#basic-example) function:
+
+							```
+							watch(value, (newValue, oldValue) => {
+								// perform some side effects
+								// when value changes
+							})
+							```
+						</section>
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp9U02P0zAQ/SuDL0lE44hr6BZViAMnQOLoi0knrbeJbWynoYry3xnnC8quuCS2Z+bN85vngR2t5bcOWcn2vnLKBvAYOnsQWrXWuAADOKx30MtQXWCE2pkWEqpIhBa6MtoH+NmhD8poeIq5aZJka8Sht7TAJTKMFBF6wkrXqh1If9cVpBr7b8tZBk8HGIQGUPVDgCt9wl9fqMmHJIMD5O+yOQ+2Xvwmmw651L5HR42T7xelr0qfOedEOqYGd1+rADamlCt7qQLUGPkllxCsL4vijl4b3oe6kFbFu811j/2oOJ2r6Zw/e6PTbEkdoZrES9E54za+ryAMMLMuIfkUc9/AR9M1J9AmwkrCCBeE49fPHBJ4CxPeDlQrz0glCYxLw/gbARsS/lVxHlut2nrofCeb5h4lCVJpkH9G20p35fA+z5IXDekT57ovZgORdWgTsLWNDEg7gH30U6Rx9FcCJUELbTbsco7tlbZdgFvemhM2T4KtccGgmGGKGYfghmjL5UrLpMdxi6v2DKV3FYFsWRPpBWpfbPTYjs1Gz1tpp7nRU5hEE0vAC1auMgpGzo97wVZ3+LqKD+jZc+POBa2463RQLXL0bf7Dmd6jI2DBdn9hFHR4Q5c7JD87dP/D/Cf1Be46Azb+BhXDR0Q=">
+						</section>
+					</section>
+
+					<section>
+						<section data-markdown="">
+							#### Template Refs
+							Vue abstracts us from the DOM but...
+							Sometimes we NEED access to the DOM elements.
+
+							For this, we use the special attribute [ref](https://vuejs.org/guide/essentials/template-refs.html)
+
+							```
+
+								&lt;input ref="input">
+
+
+							```
+							(yes, it should look familiar)
+						</section>
+						<section data-background-iframe="https://sfc.vuejs.org/#eNptVNtu2zAM/RXOe8gK1HEStEPnpQWKYh32tH2AX3xhbLWyKEhykq7Iv5eyLde95CXWIXkOb+BzdKv1ct9hlEZbWxqhHVh0nb7JlGg1GQfPYHAHJ9gZamHBrotMZaokZR2ovEW49g7fFouzgBqshXVo/j6Otl0uLbJ5mwwSTM4Ph62WuUN+AWyLzjlS/TfAHzhQJyuQ4hHB0cTYeyYz121hkpvxr38LpTs3kOxj29DhOote88miYGqpQsk2X0EWwQBzOiU2JCs0bPptMHdf4J+0gIrD4Yk6M5TcoEFIz0Kg194ms3r4ad2TRLAlaaz61PrM4HlQqoRl36cUCknl488BLMiwcgqKFI7QQVSuSWFzudLHN15xQdyENgVLUlSw1kemyicqZ3JlhROkUliuuYDcDpSnKZV0R2VnQ0LUOSkUvhH/VGnDSl9/3V7cXf14JRwmErgKzqM21KkqLkkSVzQPmHhNXonOpnD1vrS+de8yOcZW/Beq5o6FrEJU0LjvfwHsjPWoJuFnN6JT24Xy1cbz7u9IOS/CyuuLKaUePaCoG5fC5Wo1ws2IXLzOpScM+GaOW+b9UFKbm1rwdALjZwPQeVX1Na+ZDtbfJ05NYbgGeeXEPkQ4PLo4l6JmU9lv7dxQYUmG3X3gTGa+LH0zWW/V2tG6R+NEmctAW/Aq+UzZnDmevv8b5p82xM7nM2C2Yox9XIv71dXm9i4wsZM/Eb5VN9F5NNyfuM318sGS4gs1EI0Gm0Vp2Lgs4rvk31nUOKdtmiR2V/q79mCXZOqEv5amU060uETbxoWhg0XDxMNJYPVTdHoBu4uueA==">
+							<aside class="notes">
+								import { ref, nextTick } from 'vue'
+
+								const name = ref('')
+								const registerOk = ref(false)
+								const input = ref(null)
+
+								async function register() {
+									registerOk.value = true
+									await nextTick()
+									input.value.focus()
+								}
+							</aside>
+						</section>
+					</section>
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>

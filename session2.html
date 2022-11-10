@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Session 2 | M3 - Introduction to Vue.js</title>
+
+		<meta name="description" content="M3 - Introduction to Vue.js | Session 2">
+		<meta name="author" content="Dani Nebot">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/harbour.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+		<div class="header">
+			<a href="#">
+				<svg class="harbour-logo" height="26" viewBox="0 0 270 26" width="270"><path d="m269.359 21.241v3.536h-15.158v-23.573h15.125v3.538h-11.084v6.533h9.5v3.366h-9.5v6.602zm-28.902 4.04c-5.83 0-9.164-3.098-9.164-8.484v-7.609c0-5.387 3.334-8.487 9.164-8.487 2.492 0 4.547.674 6.197 2.056 1.65 1.378 2.492 3.4 2.492 6.094v.337h-4.041v-.337c0-1.449-.474-2.559-1.449-3.3-.977-.776-2.055-1.146-3.234-1.146-3.402 0-5.086 1.651-5.086 4.514v8.147c0 2.86 1.684 4.514 5.086 4.514 1.18 0 2.258-.371 3.234-1.112.977-.774 1.449-1.887 1.449-3.336v-.335h4.041v.335c0 2.696-.842 4.718-2.492 6.097-1.65 1.38-3.705 2.052-6.197 2.052zm-18.26-6.329h-8.893l-2.121 5.825h-3.74v-1.347l8.422-22.227h3.975l8.422 22.227v1.348h-3.975zm-4.412-12.357-3.268 8.991h6.469zm-17.484 9.093h-6.164v9.09h-4.043v-23.574h10.207c4.143 0 6.635 2.799 6.635 7.242 0 4.446-2.493 7.242-6.635 7.242zm-.707-10.946h-5.457v7.409h5.457c1.854 0 3.234-1.314 3.234-3.705 0-2.389-1.381-3.704-3.234-3.704zm-22.84 6.297.471.168c1.281.438 2.293.843 3.033 1.18.773.335 1.549.775 2.393 1.345 1.648 1.11 2.39 2.593 2.39 4.58 0 4.142-3.164 6.97-8.924 6.97-2.63 0-4.818-.706-6.57-2.087-1.717-1.413-2.594-3.436-2.594-6.062h4.043c0 1.112.303 1.989.875 2.696 1.213 1.381 2.729 1.752 4.479 1.752 2.83 0 4.414-1.28 4.414-3.065 0-.842-.371-1.48-1.111-1.92-.741-.471-2.09-1.078-4.043-1.816l-.305-.102-.539-.203c-2.559-.977-4.41-1.919-5.522-2.829-1.113-.943-1.649-2.29-1.649-4.073 0-2.055.741-3.738 2.258-4.985 1.514-1.246 3.604-1.886 6.229-1.886 5.287 0 8.758 2.526 8.758 7.948h-4.041c0-2.964-2.021-4.244-4.75-4.244-2.661 0-4.379 1.212-4.379 2.862 0 .91.336 1.617 1.043 2.054.705.44 2.053 1.009 4.041 1.717zm-30.959 4.68h-4.648v9.059h-4.043v-23.574h10.14c4.582 0 7.108 2.663 7.108 7.242 0 3.132-1.416 5.623-4.145 6.803l4.412 8.183v1.346h-3.973zm4.445-7.205c0-2.527-1.246-3.772-3.738-3.772h-5.355v7.544h5.355c2.492 0 3.738-1.248 3.738-3.772zm-27.791 16.767c-2.729 0-4.916-.706-6.535-2.154-1.582-1.445-2.393-3.466-2.393-6.025v-15.896h4.044v16.096c0 2.458 1.751 4.278 4.884 4.278s4.885-1.82 4.885-4.278v-16.096h4.041v15.896c0 2.561-.808 4.58-2.424 6.025-1.584 1.448-3.773 2.154-6.502 2.154zm-23.242.001c-5.693 0-9.266-3.198-9.266-8.485v-7.61c0-5.287 3.572-8.486 9.266-8.486s9.262 3.199 9.262 8.486v7.61c0 5.287-3.569 8.485-9.262 8.485zm5.221-16.297c0-2.661-1.854-4.581-5.221-4.581-3.37 0-5.223 1.919-5.223 4.581v8.015c0 2.661 1.853 4.58 5.223 4.58 3.367 0 5.221-1.919 5.221-4.58zm-25.266 15.792h-10.847v-23.573h9.939c4.209 0 6.736 2.157 6.736 6.333 0 2.391-.943 4.042-2.828 5.017 2.491.91 3.737 2.795 3.737 5.692 0 4.274-2.459 6.531-6.737 6.531zm-1.582-20.035h-5.222v6.566h5.222c2.222 0 3.334-1.11 3.334-3.3s-1.112-3.266-3.334-3.266zm.908 9.935h-6.13v6.564h6.13c2.258 0 3.369-1.078 3.369-3.232 0-2.222-1.111-3.332-3.369-3.332zm-23.715 1.042h-4.648v9.059h-4.043v-23.574h10.139c4.582 0 7.108 2.663 7.108 7.242 0 3.132-1.415 5.623-4.144 6.803l4.414 8.183v1.346h-3.976zm4.447-7.205c0-2.527-1.247-3.772-3.738-3.772h-5.356v7.544h5.356c2.491 0 3.738-1.248 3.738-3.772zm-22.907 10.438h-8.893l-2.122 5.825h-3.74v-1.347l8.422-22.226h3.975l8.421 22.228v1.346h-3.975zm-4.413-12.357-3.267 8.991h6.467zm-18.09 8.148h-9.77v10.034h-4.04v-23.573h4.041v10.002h9.77v-10.002h4.041v23.573h-4.042z"></path><circle cx="161.555" cy="24.745" r="1.256"></circle></svg>
+			</a>
+		</div>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section data-markdown>
+					![](https://media.tenor.com/14hr1KPxcCoAAAAC/community-donald-glover.gif)
+				</section>
+				<section>
+					<h3>M3 - Introduction to Vue.js</h3>
+					<p>
+						<small><a href="https://twitter.com/daniinebot">Dani Nebot</a></a></small>
+					</p>
+				</section>
+
+				<section>
+					<h3>Session 2</h3>
+					<p><small>Vue fundamentals</small></p>
+				</section>
+
+				<section>
+					<section data-markdown>
+						### Conditional rendering
+
+						The **v-if** directive
+
+						```
+						&lt;template v-if="loaded">
+							&lt;h1>Use a template&lt;/h1>
+							&lt;p>to put a condition on a group of elements&lt;/p>
+							&lt;ul>
+								&lt;li>that should all display together&lt;/li>
+								...
+							&lt;/ul>
+						&lt;/template>
+						```
+					</section>
+					<section data-markdown>
+						#### Conditional rendering /2
+
+						Just as in JS code, we have **v-else-if** and **v-else** to chain conditions:
+						```
+						&lt;div v-if="isHot()">
+							🥵
+						&lt;/div>
+						&lt;div v-else-if="isCold()">
+							🥶
+						&lt;/div>
+						&lt;div v-else>
+							😀
+						&lt;/div>
+						```
+					</section>
+					<section data-markdown>
+						#### Conditional rendering /3
+						**v-show**
+						```
+						&lt;div v-show="youAreHappyAndYouKnowIt()">
+							👏👏👏
+						&lt;/div>
+						```
+
+						Only toggles the display CSS property of the element to *none* (it remains in the DOM)
+
+						Also, it does not support chaining conditions or templates
+					</section>
+
+					<section data-markdown>
+						#### Conditional rendering: which to use?
+
+						**v-show** is more efficient if we need to show/hide the element often, as it is not affecting the DOM structure
+
+						**v-if** has a lower initial render cost, so we should use it if the element is unlikely to change at runtime
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						### List rendering
+
+						The **v-for** directive
+
+						```
+							&lt;li v-for="(item, index) in itemsArray :key="item.id">
+								{{ variableInParentScope }}
+								{{ index }} - {{ item.anyProperty }}
+							&lt;/li>
+						```
+
+						*index* is optional
+
+						[It's recommended](https://vuejs.org/style-guide/rules-essential.html#use-keyed-v-for)
+						to always provide a **:key** attribute with v-for for performance reasons
+						</section>
+						<section data-markdown>
+							#### v-for variants: JS Objects
+
+							It's possible to iterate through object properties, for example:
+							```
+							const article = {
+								title: 'How to do lists in Vue',
+								author: 'Jane Doe',
+								publishedAt: '2016-04-10'
+							}
+							```
+
+							```
+							&lt;li v-for="(value, key) in article">
+								{{ key }}: {{ value }}
+							&lt;/li>
+							```
+
+							Just like *index*, *key* here is optional
+						</section>
+
+						<section data-markdown>
+							#### v-for variants: range
+
+							Repeat the template X times
+
+							```
+							&lt;li v-for="n in 7">
+								{{ getDwarfNameFromIndex(n) }}
+							&lt;/li>
+							```
+
+							**gotcha**: the list will begin at 1, not zero!
+						</section>
+
+						<section data-markdown>
+							#### List rendering /3
+							```
+							&lt;ul>
+								&lt;template v-for="item in itemList">
+									&lt;li>{{ item }}&lt;/li>
+									&lt;li class="divider" role="presentation">&lt;/li>
+								&lt;/template>
+							&lt;/ul>
+							```
+							Just like v-if, you can also use a *template* tag with v-for to render
+							a block of multiple elements if needed
+						</section>
+
+						<section data-markdown>
+							#### List rendering /4
+
+							**Caveat**: [Avoid v-if and v-for](https://vuejs.org/style-guide/rules-essential.html#avoid-v-if-with-v-for)
+							on the same element:
+
+							```
+							// Avoid!
+							&lt;ul>
+								&lt;li
+									v-for="user in users"
+									v-if="user.isActive"
+									:key="user.id"
+								>
+										{{ user.name }}
+								&lt;/li>
+							&lt;/ul>
+							```
+						</section>
+
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp9UUFOwzAQ/MrWl15qGzhGKVKRisSBOxLmkKYbcElsy3aCUJS/s07Sqi2CXLI7M5rMZHu2cU50LbKM5aH02kUIGFt3r0xpTYjQBvQB1vCqDEAPpmgwg+Wm1iUuV6DDpoy6Iyj6FmnfE1ncLIfVhfzB7v4S726vxdvu0rkq6nBU492oflMml1NcCkpLxMbVRUTaAPK2Ht80LTiHx6cXeN4ugPMjWutpSE/HK+vXiqWeoM3UV7Fzga5mXhxDnfPZJ36f+P05M3+OqvWjrUgFYRjmFLLWU1w55s3lqQRbMd046yNvCicOwRo6T5+0aiYoYQYjkjC6X9oV+4jRhUzKUJXpqIcgrH+XNAnfmqgbFBgavvP2K8U5kMv462cPSWCHnns0e/To//O8kv7yTbZUdGDDD0b4wmk=">
+							<aside class="notes">
+								option 1: use wrapping template element
+
+								option 2: filter programatically
+								const filteredUsers = users.filter(u => u.isActive)
+
+								option 3: use v-show
+							</aside>
+						</section>
+
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp9kr1u3DAMx1+F8Ric7S5dDtcC7dCxWzcvssyzmcqSINI+5IID8iDty+VJSulyzReSiRL55w/8uqu+xdisC1bbasc2URRglCV+7TxAew3Z/KDj8ftyPIKdjHPoR7wq/hcxYjBgwzwHr2YgP4IY/g0jrehhWFL2kBdMK+GBQSYjRcFgjR9oMILqDXBIJKgsDm4RUlpRRs0XLoARE0PwWEuof27AmR5dhht/+xQfaCWm3iH0t0pIqEiGh/s/ueDNw/3fd6R7LfdRmdvKQq3uHXEfZLrAVfQs9zKWJgMus/rlB0VI7lbLncIht6ttahZJngJM6CIkJL8PySKMIQyXYcZkrJBFbjLquu28DZ4FPHyBz586v2vP69PF6Udwjk4nWta4W1yx+rqqa+XnOsCRZk+YEOr6LGuLbtf+T642Fc0xJKlnE5sbDl7P5K608xjgrtpC8WSf3lH+d9UkEnnbtry3+bhuuAlpbPXVpMULzdggz3WfwoExKbirNs8YrTpXTPW5UEwfMV9J33Az9tT5U3X6B9jtCzA=">
+							<div style="position: absolute; width: 30%; right: 0; bottom: -20rem;">
+								<img src="https://media0.giphy.com/media/12XDYvMJNcmLgQ/giphy.gif?cid=790b76118e9210915229a1edec3dd564c6e2ed151fa5fe8b" />
+							</div>
+							<aside class="notes">
+								fizzbuzz challenge!
+								get link from the course docs for this session
+
+								function isDivisible(num, div) {
+									return num % div === 0
+								}
+
+								<template v-for="i in n">
+									<span v-if="isDivisible(i, 3) && isDivisible(i, 5)">FizzBuzz</span>
+									<span v-else-if="isDivisible(i, 3)">Fizz</span>
+									<span v-else-if="isDivisible(i, 5)">Buzz</span>
+									<span v-else>{{i}}</span>
+									<br/>
+								</template>
+							</aside>
+						</section>
+					</section>
+
+					<section>
+						<section data-markdown>
+							### Reactivity Fundamentals
+
+							Focus on the **Vue 3 Composition API** for this course
+
+							Reactive variables can be declared using [the `ref()` function](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref),
+							which sets the initial value.
+
+							Vue 2 initially only provided the Options API, and this API is still available in Vue 3.
+						</section>
+						<section data-markdown>
+							#### Event Handling
+
+							Vue uses the [**v-on** directive](https://vuejs.org/guide/essentials/event-handling.html#listening-to-events) to listen to events.
+
+							Since this is such a common task, it can be shorthanded to just **@**
+							```
+								// inline handler
+								&lt;button @click="count++">Add 1&lt;/button>
+
+								// calling a function:
+								&lt;button @click="addToCart(item)">Buy&lt;/button>
+							```
+						</section>
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp9kMFugzAMhl/FyrVtsl1RitZ32DEXCN6gK0lkG3ZAvPuSgqppk3qLf//+/tiLuqSk5wlVpSx7GpIAo0ypdsHHwAI+TkGQ4AwvLlizeXI3F4JjujWCpRLbTiIxwJu/Df7r7NQ+eDg4VV+6Dl6t2SybPdXvPcI+1LRxRugbhhYxwB2BHSzLI35dQYYRWVtT/mbNI1wd1TCmSHIam6SvHEPeZXEBwO0NdqqCu1K0vGypnepFElfG8IcvF7iyjvRp8ktTzsxhGnk8tRS/GSmDnTr+YpgszkgnwtAhIT1j/rH+4xbs6sKq1h9zMozO">
+							<aside class="notes">
+								import { ref } from 'vue'
+								const counter = ref(0)
+							</aside>
+						</section>
+
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp9kU1OwzAQha8y8iZUauINq9AfumCJOABmkSYTmjYZW7ZTVKLs4QisuCJHYJyEqgKJrDzOm/c+z3RiY0xybFGkYuFyWxkPDn1rVoqqxmjroQOLJfRQWt1AxNJIkaJck/PQaDrgycEyaK4eFQHLd5m7O6F7MEgplFntEPq5oqdZ6Ctbyn2lCbKiuB+6r2bQcaOUsFbUK1rIkYMJuPDYmDrzyBXAwpmM4BiX2i6VGMOhoh8MJQYVM3TTVXLBArCG6Ovz4z2CdDi8RdBzHtvK4DsmbK2cDq33jHmb11V+4LQzL6dsimIKWMhRF3oC+gUul86falwN0B2UmnzsqldM4dpicwM95w4CMRfjrOMmM8neaeJthJmAmn7w09JhSvwpwTsItRI7741LpXRlHna4d4m2z5JPiW3JVw0m6Jp4a/WLQ8vGSvAezh6SL49oY4tUoEX7n+cv6R/fYMuz7EX/Dequ0AA=">
+							<aside class="notes">
+								monkeys.value.push({ hasEyesOpen: false })
+								@mouseover="monkey.hasEyesOpen = !monkey.hasEyesOpen"
+								@mouseover="monkey.hasEyesOpen = true"
+								@mouseleave="monkey.hasEyesOpen = false"
+
+								Nicer:
+								const monkey =  { hasEyesOpen: false }
+
+								const monkeys = ref([
+								 monkey,
+								])
+
+								function addMonkey() {
+								 monkeys.value.push(Object.assign({}, monkey))
+							</aside>
+						</section>
+
+						<section  data-background-iframe="https://sfc.vuejs.org/#eNqVkctqwzAQRX9lEAU7NJH2xjHtrv0HbWx1EivVC2mcUIL/vfKjKaVkkc2g4UpnxJwrew2BnwdkFauTijoQJKQhNNJJB3AYnCLtHRh/LDnnoY2tTRu4TiGA8i55g/xvOmXjVKSrxQKdcTWhDaYlzB1A3Q1EmfyijFafe8kyRLLmrXUfBmMtlni9GkUzl3sPy6JHY3yxhYJ6jFhsflFw0dTD8rfHsTozn/CMju4g4Rnm+BF0uQBh38yLLbovzGNuU96d0Q6h/7eKWtxWyLZM2+Aj7Wwb+Cl5lxXOWuQaJMmqH1GSZcdTL1lPFFIlRDqoSfwpcR+PIp94HBxpixyT3XXRXxLGDJZs9Tmy8RvPb7yK">
+							<div style="position: absolute; width: 30%; right: 0; bottom: -20rem;">
+								Different ways of adding "handler" functions
+							</div>
+						</section>
+
+						<section data-markdown>
+							#### Form input bindings
+
+							Vue uses the **v-model** directive to go from the cumbersome:
+
+							```
+							&lt;input
+								:value="text"
+								@input="event => text = event.target.value">
+							```
+
+							to the much nicer and concise:
+
+							```
+							&lt;input v-model="text">
+							```
+
+						</section>
+
+						<section data-background-iframe="https://sfc.vuejs.org/#eNp1j8FuwyAQRH8F7TmGni0SqepvcHGcbUtkYAWLq8ri37u0VlQlyo0ZZt/sbvBKpNeKMIItc/bEqiBXOrm4IKs51ciY1VG9uGjNX0L+RDAGWiZGUUpZOr3tUV/UxKPatttwa9Z0oGPrI1VW6xDSBZejgz3iQPE3oRixhvOvNjJgza0EDuADpcxDmEhfS4qy8dar3f5RHEhrd7onJ3Xt4JOZymhMeZ/7ndeiU/4w8tJZqn1AjSUM55y+CmYBOzj8YxgxV8xDxnjB3Bd7zryLPnA7trnYoP0AuMyC6A==">
+						</section>
+
+						<section data-markdown>
+							#### Form input bindings /2
+
+							v-model can be used on inputs of different types,
+								*textarea*, and *select* elements
+
+							```
+							&lt;!-- bad -->
+							&lt;textarea>{{ text }}&lt;/textarea>
+
+							&lt;!-- good -->
+							&lt;textarea v-model="text">&lt;/textarea>
+							```
+						</section>
+
+						<section data-markdown>
+								#### Form input bindings /3
+
+								Form input binding are extremely flexible, and powerful, but also can be confusing.
+								When in doubt, always check [the Vue 3 docs](https://vuejs.org/guide/essentials/forms.html)
+						</section>
+
+						<section data-markdown>
+							### 2nd coding challenge!
+							[**My 2022 Favorite Movies**](https://stackblitz.com/edit/my-fav-movies?file=src%2Fassets%2Fmovies.json,src%2FApp.vue,README.md)
+
+							![](https://media.tenor.com/4gm7szH1mOUAAAAC/friends-chandler.gif)
+						</section>
+					</section>
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
