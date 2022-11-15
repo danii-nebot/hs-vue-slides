@@ -68,9 +68,17 @@ a {
   line-height: 26px;
 }
 
+.session__content .references ul {
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .session__content .references li {
   list-style-type: none;
   margin-bottom: 12px;
+
 }
 
 @media (max-width: 600px) {
