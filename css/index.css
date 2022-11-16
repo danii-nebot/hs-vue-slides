@@ -82,8 +82,12 @@ a {
 }
 
 @media (max-width: 600px) {
-  .session__content {
+  .session__number {
     grid-template-columns: 1fr;
+    grid-gap: 0px;
+  }
+  .session__number .title {
+    font-size: small;
   }
 }
 
