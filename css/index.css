@@ -34,6 +34,10 @@ a {
   position: relative;
 }
 
+.session:first-of-type {
+  margin-top: 20px;
+}
+
 .session__number {
   font-size: 10vw;
   font-weight: 600;
@@ -58,7 +62,6 @@ a {
   border-top: 1px solid grey;
   padding: 20px;
 }
-
 
 .noborder {
   border: 0;
@@ -87,12 +90,9 @@ a {
     grid-gap: 0px;
   }
   .session__number .title {
-    font-size: small;
+    font-size: 16px;
   }
-}
-
-@media (max-width: 576px) {
   .session__content .references {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
