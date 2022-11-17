@@ -96,9 +96,10 @@
 
 				<section>
           <section data-markdown="">
-            ### How to the Vue Router
+            ### How to use the Vue Router
 
             We will map our **components** to **routes**,
+
             and configure Vue Router know where to render them
           </section>
 
@@ -109,14 +110,13 @@
 
             And a **views** folder to hold the Views component (our pages)
 
-
           </section>
           <section>
             <h4>Remember this?</h4>
             <img src="../assets/vue-project-file-structure.831472aa.jpg" height="500px"/>
           </section>
           <section data-markdown="">
-            Example configuration (in router/index.js)
+            Example configuration of routes (in router/index.js)
 
             ```
             const routes = [
@@ -140,6 +140,19 @@
 
             The **component** allows us to specify which Vue Component to render at that route
           </section>
+
+          <section>
+            <h4>Steps to configure Vue router</h4>
+            <ol>
+              <li>import the view components</li>
+              <li>map the paths => components in an array of routes</li>
+              <li>invoke the <b>createRouter</b> helper with your routes</li>
+              <li>dont't forget to export default!</li>
+            </ol>
+            <br/><br/>
+            <a href="https://github.com/danii-nebot/HS-vue-router/blob/main/src/router/index.js">Example simple router/index.js configuration</a>
+          </section>
+
           <section data-markdown>
             #### The router-view Component
 
@@ -204,10 +217,13 @@
               { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
             ```
           </section>
+          <section data-markdown="">
+            [Vue Router cheatsheet](https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/Vue-Router-Cheat-Sheet.pdf?GoogleAccessId=firebase-adminsdk-jyioc%40vue-mastery.iam.gserviceaccount.com&Expires=16725225600&Signature=sQMP0BSwCpYgLovvlojzWUBxRG3QGnq6qwcFfAeT4h3mFKSh%2B38P5oSUnxDKdsCxsgGnsHaOUqapaEw%2FukuXSCf6H6jA4Pb14ajGWTISWxP2E6VaKfTQ9jz8B4AY0GiFJlIrEE1x3njfQgF7IoUMaeJdddFU3ZJ3CNiuvcvk5IM0DKDFU0exMK0xJZIqnUtb9iWbihcJrZaY5hb4JBiGzooDX%2BgXzaUZzIINNsHyrVRk%2FMKWCGlezR%2FIewZ1YXIiGT5RPau6kGK%2BxTs7K3Rgf2%2Bcm%2BYkyfz3Ai87gfM%2BoKY5m%2FDq8sn7%2BsdMoquHP2NWncox8sR1mogWAEM8uzJDbQ%3D%3D)
+          </section>
 				</section>
 
         <section data-markdown="">
-          ### Vue Router SPA Example Project
+          ### SPA with Vue Router Example Project
 
           [GitHub repository](https://github.com/danii-nebot/HS-vue-router)
         </section>
