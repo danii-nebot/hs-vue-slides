@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>M3 - Introduction to Vue.js</title>
+
+		<meta name="description" content="M3 - Introduction to Vue.js">
+		<meta name="author" content="Dani Nebot">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/harbour.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+  <body>
+		<div class="header">
+			<a href="#">
+				<svg class="harbour-logo" height="26" viewBox="0 0 270 26" width="270"><path d="m269.359 21.241v3.536h-15.158v-23.573h15.125v3.538h-11.084v6.533h9.5v3.366h-9.5v6.602zm-28.902 4.04c-5.83 0-9.164-3.098-9.164-8.484v-7.609c0-5.387 3.334-8.487 9.164-8.487 2.492 0 4.547.674 6.197 2.056 1.65 1.378 2.492 3.4 2.492 6.094v.337h-4.041v-.337c0-1.449-.474-2.559-1.449-3.3-.977-.776-2.055-1.146-3.234-1.146-3.402 0-5.086 1.651-5.086 4.514v8.147c0 2.86 1.684 4.514 5.086 4.514 1.18 0 2.258-.371 3.234-1.112.977-.774 1.449-1.887 1.449-3.336v-.335h4.041v.335c0 2.696-.842 4.718-2.492 6.097-1.65 1.38-3.705 2.052-6.197 2.052zm-18.26-6.329h-8.893l-2.121 5.825h-3.74v-1.347l8.422-22.227h3.975l8.422 22.227v1.348h-3.975zm-4.412-12.357-3.268 8.991h6.469zm-17.484 9.093h-6.164v9.09h-4.043v-23.574h10.207c4.143 0 6.635 2.799 6.635 7.242 0 4.446-2.493 7.242-6.635 7.242zm-.707-10.946h-5.457v7.409h5.457c1.854 0 3.234-1.314 3.234-3.705 0-2.389-1.381-3.704-3.234-3.704zm-22.84 6.297.471.168c1.281.438 2.293.843 3.033 1.18.773.335 1.549.775 2.393 1.345 1.648 1.11 2.39 2.593 2.39 4.58 0 4.142-3.164 6.97-8.924 6.97-2.63 0-4.818-.706-6.57-2.087-1.717-1.413-2.594-3.436-2.594-6.062h4.043c0 1.112.303 1.989.875 2.696 1.213 1.381 2.729 1.752 4.479 1.752 2.83 0 4.414-1.28 4.414-3.065 0-.842-.371-1.48-1.111-1.92-.741-.471-2.09-1.078-4.043-1.816l-.305-.102-.539-.203c-2.559-.977-4.41-1.919-5.522-2.829-1.113-.943-1.649-2.29-1.649-4.073 0-2.055.741-3.738 2.258-4.985 1.514-1.246 3.604-1.886 6.229-1.886 5.287 0 8.758 2.526 8.758 7.948h-4.041c0-2.964-2.021-4.244-4.75-4.244-2.661 0-4.379 1.212-4.379 2.862 0 .91.336 1.617 1.043 2.054.705.44 2.053 1.009 4.041 1.717zm-30.959 4.68h-4.648v9.059h-4.043v-23.574h10.14c4.582 0 7.108 2.663 7.108 7.242 0 3.132-1.416 5.623-4.145 6.803l4.412 8.183v1.346h-3.973zm4.445-7.205c0-2.527-1.246-3.772-3.738-3.772h-5.355v7.544h5.355c2.492 0 3.738-1.248 3.738-3.772zm-27.791 16.767c-2.729 0-4.916-.706-6.535-2.154-1.582-1.445-2.393-3.466-2.393-6.025v-15.896h4.044v16.096c0 2.458 1.751 4.278 4.884 4.278s4.885-1.82 4.885-4.278v-16.096h4.041v15.896c0 2.561-.808 4.58-2.424 6.025-1.584 1.448-3.773 2.154-6.502 2.154zm-23.242.001c-5.693 0-9.266-3.198-9.266-8.485v-7.61c0-5.287 3.572-8.486 9.266-8.486s9.262 3.199 9.262 8.486v7.61c0 5.287-3.569 8.485-9.262 8.485zm5.221-16.297c0-2.661-1.854-4.581-5.221-4.581-3.37 0-5.223 1.919-5.223 4.581v8.015c0 2.661 1.853 4.58 5.223 4.58 3.367 0 5.221-1.919 5.221-4.58zm-25.266 15.792h-10.847v-23.573h9.939c4.209 0 6.736 2.157 6.736 6.333 0 2.391-.943 4.042-2.828 5.017 2.491.91 3.737 2.795 3.737 5.692 0 4.274-2.459 6.531-6.737 6.531zm-1.582-20.035h-5.222v6.566h5.222c2.222 0 3.334-1.11 3.334-3.3s-1.112-3.266-3.334-3.266zm.908 9.935h-6.13v6.564h6.13c2.258 0 3.369-1.078 3.369-3.232 0-2.222-1.111-3.332-3.369-3.332zm-23.715 1.042h-4.648v9.059h-4.043v-23.574h10.139c4.582 0 7.108 2.663 7.108 7.242 0 3.132-1.415 5.623-4.144 6.803l4.414 8.183v1.346h-3.976zm4.447-7.205c0-2.527-1.247-3.772-3.738-3.772h-5.356v7.544h5.356c2.491 0 3.738-1.248 3.738-3.772zm-22.907 10.438h-8.893l-2.122 5.825h-3.74v-1.347l8.422-22.226h3.975l8.421 22.228v1.346h-3.975zm-4.413-12.357-3.267 8.991h6.467zm-18.09 8.148h-9.77v10.034h-4.04v-23.573h4.041v10.002h9.77v-10.002h4.041v23.573h-4.042z"></path><circle cx="161.555" cy="24.745" r="1.256"></circle></svg>
+			</a>
+		</div>
+    <div class="container">
+      <article class="session">
+        <div class="session__number">
+          <div>00</div>
+          <div class="title">Introductions</div>
+        </div>
+        <div class="session__content noborder">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="https://developer.mozilla.org/">MDN Reference page</a>
+              </li>
+              <li>
+                <a href="https://vuejs.org/guide/introduction.html">Vue 3 docs</a>
+              </li>
+              <li>
+                <a href="https://harbour.space/front-end-development/courses/introduction-to-vue-js-dani-nebot-715">Introduction to Vue.js Course page | Harbour Space</a>
+              </li>
+              <li>
+                Recommended local dev set up: <a href="https://code.visualstudio.com/">VS Code IDE</a> & <a href="https://marketplace.visualstudio.com/items?itemName=Vue.volar">Volar Extension</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="session">
+        <div class="session__number">
+          <div>01</div>
+          <div class="title">Vue.js</div>
+        </div>
+        <div class="session__content">
+
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week1/session1.html">Slides for Session 1</a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9kEFuwjAQRa8y8iatCrHEkrpUvUEP4A2EAYycsTWewCLK3TshFEWtxO7P//ab0e/NV871pUOzNq40HLJAQenyxlOTqAgcGVECHeEDqhPGmKrf5HpK7eheE8f9w93hd4pBUBPhDj15OnTUSEg0seDlFXpPAKx7mKD6rN49DZ6cnQ7Q1ToItjluBXUCcPtwuQmVXbwr1TFsVvAGK2dVzd2+h1sAwzDLnL1/dnYCOvtYYxYmtDmxLNttrs8lkVZyu9Pfg+LNerp89LSzcfbmJJLL2tpyaMYiz6VOfLSqau5IQos1lna543QtyAr2ZjFjWDUvyEtG2iMjP2P+efqPO2K1x8EMP8Isna4=">
+                  Template syntax example
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9j8uOwjAMRX8l8oYNTfZVGWn+YWaXTSmmFDUP2S4gof47Di8hkNjlnvge2Wf4zdkeJoQaGu5oyGIYZco/PnYpspghtD3+02hWZrF4wHaUPzzJnTXu1tSOBsGQx1ZQkzHNEHpTM3UrDw+Th9JXcLdodjrcuGcTljqcE0kV2mz3nKKudy6+Yikf7KE2V1KY7l+yh51I5to53nblqD3bRL3Tl6UpyhDQIodqTenISCr2sHxxOIUHpIowbpCQvjnfRj+8RTv7OMN8AbjeetU=">
+                  Attribute binding example
+                  </a>
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+      </article>
+
+      <article class="session">
+        <div class="session__number">
+          <div>02</div>
+          <div class="title">Vue Fundamentals</div>
+        </div>
+        <div class="session__content">
+
+          <div class="references">
+            <ul>
+              <li><a href="week1/session2.html">Slides for Session 2</a></li>
+              <li><a href="https://developer.mozilla.org/">MDN Reference page</a></li>
+              <li><a href="https://vuejs.org/guide/essentials/forms.html">Vue docs for Form Input Bindings</a>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9UUFOwzAQ/MrWl15qGzhGKVKRisSBOxLmkKYbcElsy3aCUJS/s07Sqi2CXLI7M5rMZHu2cU50LbKM5aH02kUIGFt3r0xpTYjQBvQB1vCqDEAPpmgwg+Wm1iUuV6DDpoy6Iyj6FmnfE1ncLIfVhfzB7v4S726vxdvu0rkq6nBU492oflMml1NcCkpLxMbVRUTaAPK2Ht80LTiHx6cXeN4ugPMjWutpSE/HK+vXiqWeoM3UV7Fzga5mXhxDnfPZJ36f+P05M3+OqvWjrUgFYRjmFLLWU1w55s3lqQRbMd046yNvCicOwRo6T5+0aiYoYQYjkjC6X9oV+4jRhUzKUJXpqIcgrH+XNAnfmqgbFBgavvP2K8U5kMv462cPSWCHnns0e/To//O8kv7yTbZUdGDDD0b4wmk=">
+                Playground v-if + v-for
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9kr1u3DAMx1+F8Ric7S5dDtcC7dCxWzcvssyzmcqSINI+5IID8iDty+VJSulyzReSiRL55w/8uqu+xdisC1bbasc2URRglCV+7TxAew3Z/KDj8ftyPIKdjHPoR7wq/hcxYjBgwzwHr2YgP4IY/g0jrehhWFL2kBdMK+GBQSYjRcFgjR9oMILqDXBIJKgsDm4RUlpRRs0XLoARE0PwWEuof27AmR5dhht/+xQfaCWm3iH0t0pIqEiGh/s/ueDNw/3fd6R7LfdRmdvKQq3uHXEfZLrAVfQs9zKWJgMus/rlB0VI7lbLncIht6ttahZJngJM6CIkJL8PySKMIQyXYcZkrJBFbjLquu28DZ4FPHyBz586v2vP69PF6Udwjk4nWta4W1yx+rqqa+XnOsCRZk+YEOr6LGuLbtf+T642Fc0xJKlnE5sbDl7P5K608xjgrtpC8WSf3lH+d9UkEnnbtry3+bhuuAlpbPXVpMULzdggz3WfwoExKbirNs8YrTpXTPW5UEwfMV9J33Az9tT5U3X6B9jtCzA=">
+                FizzBuzz challenge!
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9kMFugzAMhl/FyrVtsl1RitZ32DEXCN6gK0lkG3ZAvPuSgqppk3qLf//+/tiLuqSk5wlVpSx7GpIAo0ypdsHHwAI+TkGQ4AwvLlizeXI3F4JjujWCpRLbTiIxwJu/Df7r7NQ+eDg4VV+6Dl6t2SybPdXvPcI+1LRxRugbhhYxwB2BHSzLI35dQYYRWVtT/mbNI1wd1TCmSHIam6SvHEPeZXEBwO0NdqqCu1K0vGypnepFElfG8IcvF7iyjvRp8ktTzsxhGnk8tRS/GSmDnTr+YpgszkgnwtAhIT1j/rH+4xbs6sKq1h9zMozO">
+                Reactivity 101 example
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp1j8FuwyAQRH8F7TmGni0SqepvcHGcbUtkYAWLq8ri37u0VlQlyo0ZZt/sbvBKpNeKMIItc/bEqiBXOrm4IKs51ciY1VG9uGjNX0L+RDAGWiZGUUpZOr3tUV/UxKPatttwa9Z0oGPrI1VW6xDSBZejgz3iQPE3oRixhvOvNjJgza0EDuADpcxDmEhfS4qy8dar3f5RHEhrd7onJ3Xt4JOZymhMeZ/7ndeiU/4w8tJZqn1AjSUM55y+CmYBOzj8YxgxV8xDxnjB3Bd7zryLPnA7trnYoP0AuMyC6A==">
+                Reactivity + Form binding example
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9kU1OwzAQha8y8iZUauINq9AfumCJOABmkSYTmjYZW7ZTVKLs4QisuCJHYJyEqgKJrDzOm/c+z3RiY0xybFGkYuFyWxkPDn1rVoqqxmjroQOLJfRQWt1AxNJIkaJck/PQaDrgycEyaK4eFQHLd5m7O6F7MEgplFntEPq5oqdZ6Ctbyn2lCbKiuB+6r2bQcaOUsFbUK1rIkYMJuPDYmDrzyBXAwpmM4BiX2i6VGMOhoh8MJQYVM3TTVXLBArCG6Ovz4z2CdDi8RdBzHtvK4DsmbK2cDq33jHmb11V+4LQzL6dsimIKWMhRF3oC+gUul86falwN0B2UmnzsqldM4dpicwM95w4CMRfjrOMmM8neaeJthJmAmn7w09JhSvwpwTsItRI7741LpXRlHna4d4m2z5JPiW3JVw0m6Jp4a/WLQ8vGSvAezh6SL49oY4tUoEX7n+cv6R/fYMuz7EX/Dequ0AA=">
+                Monkeys
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNqVkctqwzAQRX9lEAU7NJH2xjHtrv0HbWx1EivVC2mcUIL/vfKjKaVkkc2g4UpnxJwrew2BnwdkFauTijoQJKQhNNJJB3AYnCLtHRh/LDnnoY2tTRu4TiGA8i55g/xvOmXjVKSrxQKdcTWhDaYlzB1A3Q1EmfyijFafe8kyRLLmrXUfBmMtlni9GkUzl3sPy6JHY3yxhYJ6jFhsflFw0dTD8rfHsTozn/CMju4g4Rnm+BF0uQBh38yLLbovzGNuU96d0Q6h/7eKWtxWyLZM2+Aj7Wwb+Cl5lxXOWuQaJMmqH1GSZcdTL1lPFFIlRDqoSfwpcR+PIp94HBxpixyT3XXRXxLGDJZs9Tmy8RvPb7yK">
+                Event Handler functions example
+                </a>
+              </li>
+              <li>
+                <a href="https://stackblitz.com/edit/my-fav-movies?file=README.md">
+                Session 2 Assignment: My Favorite Movies 2022
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </article>
+
+      <article class="session">
+        <div class="session__number">
+          <div>03</div>
+          <div class="title">More on Reactivity</div>
+        </div>
+        <div class="session__content">
+
+          <div class="references">
+            <ul>
+              <li><a href="week1/session3.html">Slides for Session 3</a></li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN Reference page for Array prototype</a>
+              </li>
+              <li>
+                <a href="https://vuejs.org/guide/essentials/watchers.html">Vue docs for Watchers</a>
+              <li>
+                <a href="https://vuejs.org/guide/essentials/computed.html">Vue docs for Computed Properties</a>
+              <li>
+                <a href="https://vuejs.org/guide/essentials/template-refs.html">Vue docs for Template refs</a>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNqFUttq3DAQ/ZXBL3nRWmnSq7u7JVAoBNpCt6EPdSmyPZto0cVo5G2Txf/ekeylaUOIH4TmdjTn+ByKi74v9wMWVbGkNug+AmEc+nXtagcgJVwRwuUGLkJQtxCwG1qE6KFVph2MihzcINBgQbkOrPoNfstXULmf726wDQaa0T6+/8QgWwzoWqym5E2MPVVSdrhH43sMpfV32hhV+nAt0S2uNrLzLclv2MhLtVebvKj8csSRH4xvlPn5udlhG0nmXeW0a3qi9Y4iGM3HCr6fCngm4EzAuYDnAl4IeCnglYDXAt5w6fTH35FEawUn706SGnWckonjnFzKSbOs1jKi7ZMiHAEsO72H1iiiVV3wYFTaYaiLqUi9cuuvs3BJMGMADVp0kUC7rOmkoKYKDgduG0d+LY1lgCbIdT7+hTvq/wQct40jzHjAX0aRvPLERN6jwiHFWzOxSqQOuRtgy6QWpO+wgrOA9u2UtSpca1fB+TE1ZpkyQiEKbXsf4sKqvtyRd2y7Q2qq5wLVBe83IdUF+zLFdXF0CG3bZNYdZWfwrQyDi9piiWQXTfC/iN2zYxRxD0Nyco9hwV7p2DD8Ex7H/K/1Ae7MaCzGP/Z5Fm0=">
+                  Array reduce exercises
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9U0tu20AMvQo7i8YGbGnTleK48UJAizYxkBYFik5hyBIVy/F8MBy5cAXt2yN01Sv2CKU+sZ3YyG7IeXwkH8lKzKwNtiWKSEwodYX1QOhLO5W6UNY4DxU4zEeQGmVLjxnUkDuj4IKDLqSWOjWaPHyK48XtfBF/ef9xcTO//RB/hSu4+Pf3zy8GdZB38ezuPOb3HqOMfsAduzntKqF4hzS3qCPIkw0h1IeEHZIYyuUNvkkNvWsk9fdhg8tLnfrCaEiy7Kb9GgyhOgAp2CabEgNb0mowX64x9UFCVNzrQVWPetCQqTgrwBGfQ2W2+CKlsYM+UOpJ2AnLkrLhUdlN4pEtgAnZRMN2nBt3JUXffKEf2aSAa2VKQk53AARHwnD7r069UrTsLGLVUz2JgbdnZxGdG2LdNs8tcKFdyUsX9o/Se1bjOt0U6QNXt5eZ08+yDJI+9yTskNPXekn28mzssaQcfteapwxPC7DTzyt0CAWB0bjHNrv7+AsqWRtXeFaVokaOsy32Mc2ojsbDJvndBqftkCrIjfZjKn5iBG+43kvguA4gRqI7lrFKbLAmo/mc2rWQ/QePktN3Q5GCT6expVh5bykKQ8rT5gjXFBh3H/IrcKX2hcIASY2XzvwgdEwsBW/3niNkJy/G2KHOWAf3Eucz6AlvQ8ujrkX9H8mja0Y=">
+                  Computed monkeys
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9VNtu00AQ/ZXBQsSREhsQT2kc2odIIGgjFQRCGLWOM443tXdXu+ugYvkdPoEnfpFPYOy1cyFuHyztrM+cOXPb0rmQ0tsW6EycqY4VkwY0mkLOQs5yKZSBEhQmI4hFLguDK6ggUSKHATkNQh7yWHBt4MN8fnO1uJl/evv+5nJx9W7+BQIY/P3z+yeBLOTN/OK6H/Nrh8kFv8N7uqawaaTn96gXEvkEkijTCNU+oEVqgpI892vIob0ahfzbsMYlBY8NExyi1eqy+eUOodwDtbeNsgI9WejUXSw3GBsv0pqtuVtWoxY0JCqKCnDApzAXW3yUUkh372gF8yJfolok1k9fotbRGkl/V1mXuIKZpWMJuMeUGfK1SSEIAng+JAmmUBwGJkWFENHHRadhQCEBsK7XozQv/qdhGgTHluaApUXd7oM9LftYq07BLaVO6RPDrlvRRihm6s6eplsHOmrqZ2bSrvXkcRwrYZlB1aZVM9iTdzAudexGfie9h7erxCx4oEQ+vBxaEoDXfcPbBDEw6Zl9m//UtxtFu0SGwVxmkUGyAKZaRhy240SoIHTaXNhOaOjAeS4KjTRne8BhilSWJ6e3odOw0/aUPWV5II/eDKBqhpdSIKFW8lL57aEwhtbgPM5YfEfqdvtF4S9WK4ja2FPfImfP+FLLs17fw10i9+vGPGU4FiBnZdm/TlU19eu3qwF9TGmYu8FjetJUpbN3yLpPB70hU5v7DGdNh0pIBDdjzX7gBF6R2DMgPwtwRo59Isd5JL2NFpwe0WZ7w/YH9ZGC2o6EDj2YtR06qTFST3xfJ3H99G60J9Tap5OnCm5Yjh7qfLxU4rtGRcShU1NQPyqn+ge6oPwn">
+                  Final code for the Computed Monkeys example
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9U02P0zAQ/SuDL0lE44hr6BZViAMnQOLoi0knrbeJbWynoYry3xnnC8quuCS2Z+bN85vngR2t5bcOWcn2vnLKBvAYOnsQWrXWuAADOKx30MtQXWCE2pkWEqpIhBa6MtoH+NmhD8poeIq5aZJka8Sht7TAJTKMFBF6wkrXqh1If9cVpBr7b8tZBk8HGIQGUPVDgCt9wl9fqMmHJIMD5O+yOQ+2Xvwmmw651L5HR42T7xelr0qfOedEOqYGd1+rADamlCt7qQLUGPkllxCsL4vijl4b3oe6kFbFu811j/2oOJ2r6Zw/e6PTbEkdoZrES9E54za+ryAMMLMuIfkUc9/AR9M1J9AmwkrCCBeE49fPHBJ4CxPeDlQrz0glCYxLw/gbARsS/lVxHlut2nrofCeb5h4lCVJpkH9G20p35fA+z5IXDekT57ovZgORdWgTsLWNDEg7gH30U6Rx9FcCJUELbTbsco7tlbZdgFvemhM2T4KtccGgmGGKGYfghmjL5UrLpMdxi6v2DKV3FYFsWRPpBWpfbPTYjs1Gz1tpp7nRU5hEE0vAC1auMgpGzo97wVZ3+LqKD+jZc+POBa2463RQLXL0bf7Dmd6jI2DBdn9hFHR4Q5c7JD87dP/D/Cf1Be46Azb+BhXDR0Q=">
+                  Yes No Watchers Example
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNptVNtu2zAM/RXOe8gK1HEStEPnpQWKYh32tH2AX3xhbLWyKEhykq7Iv5eyLde95CXWIXkOb+BzdKv1ct9hlEZbWxqhHVh0nb7JlGg1GQfPYHAHJ9gZamHBrotMZaokZR2ovEW49g7fFouzgBqshXVo/j6Otl0uLbJ5mwwSTM4Ph62WuUN+AWyLzjlS/TfAHzhQJyuQ4hHB0cTYeyYz121hkpvxr38LpTs3kOxj29DhOote88miYGqpQsk2X0EWwQBzOiU2JCs0bPptMHdf4J+0gIrD4Yk6M5TcoEFIz0Kg194ms3r4ad2TRLAlaaz61PrM4HlQqoRl36cUCknl488BLMiwcgqKFI7QQVSuSWFzudLHN15xQdyENgVLUlSw1kemyicqZ3JlhROkUliuuYDcDpSnKZV0R2VnQ0LUOSkUvhH/VGnDSl9/3V7cXf14JRwmErgKzqM21KkqLkkSVzQPmHhNXonOpnD1vrS+de8yOcZW/Beq5o6FrEJU0LjvfwHsjPWoJuFnN6JT24Xy1cbz7u9IOS/CyuuLKaUePaCoG5fC5Wo1ws2IXLzOpScM+GaOW+b9UFKbm1rwdALjZwPQeVX1Na+ZDtbfJ05NYbgGeeXEPkQ4PLo4l6JmU9lv7dxQYUmG3X3gTGa+LH0zWW/V2tG6R+NEmctAW/Aq+UzZnDmevv8b5p82xM7nM2C2Yox9XIv71dXm9i4wsZM/Eb5VN9F5NNyfuM318sGS4gs1EI0Gm0Vp2Lgs4rvk31nUOKdtmiR2V/q79mCXZOqEv5amU060uETbxoWhg0XDxMNJYPVTdHoBu4uueA==">
+                  Template Refs example
+                </a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp1VMlu2zAQ/ZWpCsQOEEm2kRSp6gQNgqboKT30qAstURZjihS4eGngf++QomQlTn2wxDecN28WzWv00LbJ1tIoi5a6UKw1oKmx7X0uWNNKZeAVFK2uQNC9+cOKDRyhUrKBCTpNcpGLQgptQJCGwp27Op1MLntU0TXThqrnTbBVhGs6mJlorQkWYTlHQy6IPogCKisKw6QYKKaX8JoLGFEmW8KtC2qUpc5EdoShkiB0imwArIJpF+bioovXuQU2vHDCkkoWVmMgcKaj+8sFPpZpVxmsCR4MbVpODMUTwHJljUGV3wuOIe/yqJeXR94O8At20vISONtQMHLQ773Tzj1QqfQ+PPzZK+tIsEDI3QFRB21jXcvdKOLz5mRqZEk52lxX8sinA4CqC1pLXlKFpp+KEvMJfnMNVKA7HKRVXRtrqihkl72jk7NMR2njUZsDp6AL2dLSq+1qHGpaMo13DxmsuCw23zpwJRVGzkBIQQO0Y6WpM1jczNr9m1vxSmJdmgy05KyEebtHKjJQGUWEZm48MkjmmADRHaXvmZeS+V72gqQ1nAn6JviHkRYY6fOPh+vH268nwtDjwLVCHWslrSjjQnKJGY0dBl5FSmZ1BrfvU/Ole6dkH2v2l4k1VqxX1Xv1MZ78rwet0g5tJXO9C+hQdiZctvG4+pUUxgXByPPrQZJHd5Sta5PBzWwW4Dog16e+eMIeX4xxjbxnKTVErRl2p2f8qAEtKUuf8xzpYP5l4Gxl31xFceTYtvcw+GnHhLM1mgo/tWNDSQup8LpzHIUZD4svJsabNTpYt1QZVhDe065wlJxSNOcGu+8eXf+zWuLlqxEwGjHEzsfiaXa7eHjsmdwywU3iSnUfXUXddo0b0iYvWgrcvx1RMOg8yvqJyyPcte6cR7Uxrc7SVFeF29ovOpFqneJboqwwrKEJ1U28UnKnqULiPELBA0eKIOYQKypwyNyS+j/nu6tnvOHrOEbHf1LDGhg=">
+                  Final code for the Refs button + input focus example
+                </a>
+              </li>
+              <li>
+                <a href="https://stackblitz.com/edit/movie-queries?file=README.md,src%2FApp.vue">
+                  Assignment for Session 3: Movie Queries
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="session">
+        <div class="session__number">
+          <div>04</div>
+          <div class="title">Vue Components</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week1/session4.html">Slides for Session 4</a>
+              </li>
+              <li>
+                <a href="https://medium.com/@arqex/what-is-component-driven-development-and-why-to-use-it-e3e57abbc449">What is component-driven development and why to use it</a>
+              </li>
+              <li>
+                <a href="https://addyosmani.com/first/">Addy Osmani's FIRST principles</a>
+              </li>
+              <li>
+                <a href="https://vuejs.org/guide/essentials/component-basics.html">Vue docs: Components Basics</a>
+              </li>
+              <li>
+                <a href="https://vuejs.org/guide/essentials/component-basics.html">Vue docs: Components Basics</a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNqVU8mO2zAM/RVWF3swiT3T3gJP0AUD9FAUPRQFiroHRWESp7YkSHIGheF/L7Vk6yzBHGyIIh9JPT4O7IPWxa5HNmOVFabRDiy6Xs9rCdB0WhkHAxhcwQgrozrIKDg7cX7snVPyk+qlQ5NCivLs1ucPEKGkdeCU4y3c+aT5zdXxngvXP+lw3KzRJUeWBY//Vr0UrlESRNuIP7jMJT784O0E8AoGHwAJWux42yMlwCJeRGcseHBGdML5HqPn+tpfjbWsykgQUUOGw0633KG3XLW5nX9Gg8Dp67j8C2LTtEvqn0iSKJ19U5UU4zNVVnM5/+4LzGAYEh3jSOm9I4QsTDkPvyPgCycmxIbLNQZYYusi7n5H5UEYpF6XYT6xauT0WTi96Xyysyad7mp2UzN4n0gnM51qdhH49t0zSLgInd6+BK3KwzzYhEVpTjuui61VkrQd5FAnh60ZcRAHXTMSp7drtnFO21lZ2pXwit3aQpl1SafCUBNNhwXabrow6sGSpreUJQljpJKPBP/6hYpi10ZpS2pc4qqR+M1b+bDnYQZf+26BZjzZDuwavxsx/p4Mm//KEjvZ78OyxGCRmI27FGoV++SP94oe5PPkx31K+NPNgNBBfig5OQ/y23hpgbz0An9pwDTeVLpmwQ3wU/X7NYcOvYL3TxlH8MOxRchTxkT/SWL8B1rUrjQ=">
+                  Child custom Events
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </article>
+      <article class="session">
+        <div class="session__number">
+          <div>05</div>
+          <div class="title">Practice</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="https://github.com/danii-nebot/hs-movie-queries">Live coding example for Assignment 3</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="session">
+        <div class="session__number">
+          <div>06</div>
+          <div class="title">Components Deep Dive</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week2/session6.html">Slides for Session 6</a>
+              </li>
+              <li>
+                <a href="https://vuejs.org/api/composition-api-lifecycle.html#composition-api-lifecycle-hooks">Lifecycle of a Vue component</a>
+              </li>
+              <li>
+                <a href="https://vuejs.org/guide/components/slots.html#named-slots">Named Slots</a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNqVUsFKxDAQ/ZUQhK6wbfBaqujBqwjiyXiou9PdLm0SkmlVSv/dSbqpu7q4eCmZmZfXl/dm4HfGZH0HPOeFW9naIHOAnbmRqm6NtsgGZqFiI6usbllC0GQePTuwD2UL+1kmYsMzEkyqlVYOWVVb+l57okWSXMZ2Ux53CzEpoH9TgdCapkSgirFie3UzDHuicWR0DrfHsRA0CpD4c18w1qetXkOThyupov615KGQ/BjhiSLAn6e5INJCzCL4kk+PTtvSZDunFTk2eKDcD5zkOQsd3yMDfC35FtG4XAhXrbwrO5dpuxF0ymynsCavwLXpm9XvJJ+IJV8ecAhq9mBTC2oNFuxfnD+gv3g97SjVSE85zOlE8muoagWPVhu3CC8KvvkLOXtCW6tN0OjNOmwSN6UYr9+3NbrFS9KZNRk45eDRyZLFXiRIXs+kXyvT4WQLfhofFMLHHCQBV7DVDT07Zsx8nnGe92XTzfGHFdlPbgMxTS6A1C5Oab2AHhRmWNoNYBaYLr835J/aws6elBatOKNsduycsMPVHb8ArW5W6A==">Multiple v-models in single component example</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="session">
+        <div class="session__number">
+          <div>07</div>
+          <div class="title">Asynchronous Code</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week2/session7.html">Slides for Session 7</a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN Ref page for Promises</a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">MDN Reference page for Async/Await</a>
+              </li>
+              <li>
+                <a href="https://sfc.vuejs.org/#eNp9U02L2zAQ/StT92CHJlJKLyVkA2HpoRTKQreHgi+KPXa0tSUhyQnB+L93JH90t1vWB6P5evNmntQnR2PYpcNkl+xdYaXx4NB35pAr2RptPfxC911DZXULKePRCgVprvZ8rKBcMjy2phEeyQLY/+icQeVGi+xYx2drzoX3lWiakyh+TxGKybYGZ4u7PDl7b9yO8xZLKZhHpS0rdMv15/bT6dujk9XPI333/KybcqMVq2WVJ7B04S8p8RecAv0lnqyTcdpNKwx7clrRPvqYNgVcnuwgeoKP5g/2X4quKsJSnhzTtuZ0YrZTXrbI0LWbk9VXh5aA82T9DIOT84J2Y1GVaNG+hflP6ivcADvkaqBRFo3+I2pOpKKsPVisYJiEHQXNfaGV8xRxhg4IdyEp64dVUBiAcxBlKVUNJTbiFlziKqQHhVd4ICDpMKNi3Vyo9jDvi3o/0ip057NsFf20/VHtKTmjBsEc1vBxu91GKzSNm6K/t7cZbGFI5MbmFfrinKXz2m7olGZXX3FhZDqBhCrdIGt0HQhO3nlOdhFNF6bNRkTyx0uQrUYmUAhqARlaq+1qZvKqugeh3BXtDtIvIfMd3OuuKUHpACkIwZ8Rjg9fGaTwASLaGmQraqSSNMgXNXz7ZZlDH7Sbeo8dYRj2PMg7vZ/d+ICWrNhjehrPr/3wB2ZeVp0=">
+                  YesNo API example with Suspense
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/danii-nebot/HS-suspense-async-data-components">
+                  Example of Suspense with async data
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="session">
+        <div class="session__number">
+          <div>08</div>
+          <div class="title">Testing Vue Components</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week2/session8.html">Slides for Session 8</a>
+              </li>
+              <li>
+                <a href="https://vitest.dev/">Vitest</a>
+              </li>
+              <li>
+                <a href="https://test-utils.vuejs.org/">Vue Test Utils</a>
+              </li>
+              <li>
+                <a href="https://testdriven.io/blog/vue-unit-testing/">A fantastic step by step guide & concepts for testing Vue 3 components</a>
+              </li>
+              <li>
+                <a href="https://github.com/danii-nebot/HS-unit-test-assignment">Assignment: Unit Tests & TDD</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="session">
+        <div class="session__number">
+          <div>09</div>
+          <div class="title">Vue Router</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week2/session9.html">Slides for Session 9</a>
+              </li>
+              <li>
+                <a href="https://router.vuejs.org/guide/">Vue Router reference</a>
+              </li>
+              <li>
+                <a href="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/Vue-Router-Cheat-Sheet.pdf?GoogleAccessId=firebase-adminsdk-jyioc%40vue-mastery.iam.gserviceaccount.com&Expires=16725225600&Signature=sQMP0BSwCpYgLovvlojzWUBxRG3QGnq6qwcFfAeT4h3mFKSh%2B38P5oSUnxDKdsCxsgGnsHaOUqapaEw%2FukuXSCf6H6jA4Pb14ajGWTISWxP2E6VaKfTQ9jz8B4AY0GiFJlIrEE1x3njfQgF7IoUMaeJdddFU3ZJ3CNiuvcvk5IM0DKDFU0exMK0xJZIqnUtb9iWbihcJrZaY5hb4JBiGzooDX%2BgXzaUZzIINNsHyrVRk%2FMKWCGlezR%2FIewZ1YXIiGT5RPau6kGK%2BxTs7K3Rgf2%2Bcm%2BYkyfz3Ai87gfM%2BoKY5m%2FDq8sn7%2BsdMoquHP2NWncox8sR1mogWAEM8uzJDbQ%3D%3D">
+                  Vue Router Cheatsheet
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/danii-nebot/HS-vue-router">
+                  Example Vue Router project
+                </a>
+              </li>
+              <li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="session">
+        <div class="session__number">
+          <div>10</div>
+          <div class="title">Pinia Store</div>
+        </div>
+        <div class="session__content">
+          <div class="references">
+            <ul>
+              <li>
+                <a href="week3/session10.html">Slides for Session 10</a>
+              </li>
+              <li>
+                <a href="https://pinia.vuejs.org/introduction.html">Pinia docs</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+</body>
+</html>
